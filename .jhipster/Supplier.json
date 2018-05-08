@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "products",
+            "otherEntityName": "product",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "suppliers"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contactPerson",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactDetails",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180508052023",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "supplier",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

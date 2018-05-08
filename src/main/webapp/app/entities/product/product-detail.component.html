@@ -1,0 +1,76 @@
+
+<div *ngIf="product">
+    <h2><span>Product</span> {{product.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{product.name}}</span>
+        </dd>
+        <dt><span>Reference</span></dt>
+        <dd>
+            <span>{{product.reference}}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+            <span>{{product.category}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{product.description}}</span>
+        </dd>
+        <dt><span>Brand</span></dt>
+        <dd>
+            <span>{{product.brand}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <span>{{product.model}}</span>
+        </dd>
+        <dt><span>Quantity</span></dt>
+        <dd>
+            <span>{{product.quantity}}</span>
+        </dd>
+        <dt><span>Unit</span></dt>
+        <dd>
+            <span>{{product.unit}}</span>
+        </dd>
+        <dt><span>Product Date</span></dt>
+        <dd>
+            <span>{{product.product_date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Original Price</span></dt>
+        <dd>
+            <span>{{product.originalPrice}}</span>
+        </dd>
+        <dt><span>Selling Price</span></dt>
+        <dd>
+            <span>{{product.sellingPrice}}</span>
+        </dd>
+        <dt><span>Agent</span></dt>
+        <dd>
+            <span>{{product.agent}}</span>
+        </dd>
+        <dt><span>Suppliers</span></dt>
+        <dd>
+            <span *ngFor="let suppliers of product.suppliers; let last = last">
+                <a [routerLink]="['/supplier', suppliers?.id ]">{{suppliers.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'product/'+ product.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
